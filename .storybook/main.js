@@ -10,9 +10,11 @@ module.exports = {
   addons: [
     '@storybook/addon-links',
     '@storybook/addon-essentials',
+    '@storybook/addon-docs',
     '@storybook/addon-actions',
+    '@storybook/addon-controls',
     '@storybook/addon-interactions',
-    '@storybook/preset-create-react-app'
+    'storybook-dark-mode'
   ],
   typescript: {
     check: false,
@@ -23,6 +25,8 @@ module.exports = {
         prop.parent ? !/node_modules/.test(prop.parent.fileName) : true
     }
   },
+  framework: '@storybook/react',
+  staticDirs: ['./'],
   core: {
     builder: '@storybook/builder-webpack5'
   },
