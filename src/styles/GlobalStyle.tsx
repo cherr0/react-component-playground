@@ -1,14 +1,9 @@
 import { createGlobalStyle } from 'styled-components'
-import './_variables.css'
 
 const GlobalStyle = createGlobalStyle`
   html {
-    -ms-text-size-adjust: 100%; /* 2 */
-    -webkit-text-size-adjust: 100%; /* 2 */
-  }
-  
-  body {
-    color: var(--gray-50);
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
   }
 
   *, *::before, *::after {

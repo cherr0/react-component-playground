@@ -25,7 +25,6 @@ module.exports = {
         prop.parent ? !/node_modules/.test(prop.parent.fileName) : true
     }
   },
-  framework: '@storybook/react',
   staticDirs: ['./'],
   core: {
     builder: '@storybook/builder-webpack5'
