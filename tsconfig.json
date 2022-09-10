@@ -16,5 +16,5 @@
     "noEmit": true,
     "jsx": "react-jsx"
   },
-  "include": ["src", "stories", "components"]
+  "include": ["src", "stories", "components", "types.ts"]
 }
