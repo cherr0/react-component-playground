@@ -4,11 +4,9 @@ module.exports = {
     commonjs: true,
     es2021: true
   },
-  extends: ['prettier'],
   plugins: [
     'react',
     'react-hooks',
-    'prettier',
     'storybook',
     '@typescript-eslint/eslint-plugin'
   ],
@@ -25,17 +23,6 @@ module.exports = {
     }
   ],
   rules: {
-    'import/no-anonymous-default-export': 'off',
-    'prettier/prettier': [
-      'warn',
-      {
-        semi: false,
-        tabWidth: 2,
-        jsxSingleQuote: true,
-        singleQuote: true,
-        arrowParens: 'always',
-        trailingComma: 'none'
-      }
-    ]
+    'import/no-anonymous-default-export': 'off'
   }
-}
+};
