@@ -8,11 +8,11 @@ const variantStyle: StyleRecord<BoxButtonProps['variant']> = {
     color: var(--white);
     background-color: var(--accent-button-default);
 
-    :disabled {
-      background-color: var(--accent-button-disabled);
-    }
     :hover {
       background-color: var(--accent-button-hover);
+    }
+    :disabled {
+      background-color: var(--accent-button-disabled);
     }
     :focus {
       background-color: var(--accent-button-focused);
@@ -23,13 +23,13 @@ const variantStyle: StyleRecord<BoxButtonProps['variant']> = {
     background-color: transparent;
     border: 1px solid var(--accent-button-default);
 
-    :disabled {
-      color: var(--accent-button-disabled);
-      border: 1px solid var(--accent-button-disabled);
-    }
     :hover {
       color: var(--accent-button-hover);
       border: 1px solid var(--accent-button-hover);
+    }
+    :disabled {
+      color: var(--accent-button-disabled);
+      border: 1px solid var(--accent-button-disabled);
     }
     :focus {
       color: var(--accent-button-focused);
@@ -62,10 +62,6 @@ export const BoxButtonWrapper = styled.button<BoxButtonProps>`
   box-shadow: var(--shadow-md);
   border-radius: 4px;
   gap: 8px;
-
-  :hover {
-    box-shadow: var(--shadow-lg);
-  }
 
   ${({ variant }) => variantStyle[variant]};
   ${({ size }) => sizeStyle[size]};

@@ -14,6 +14,7 @@ export default {
       }
     },
     disabled: {
+      defaultValue: false,
       control: {
         type: 'boolean'
       }
@@ -44,11 +45,11 @@ const Template: ComponentStory<typeof BoxButton> = (args) => {
 };
 
 export const Contained = Template.bind({});
-Template.args = {
+Contained.args = {
   variant: 'contained'
 };
 
 export const Outlined = Template.bind({});
-Template.args = {
+Outlined.args = {
   variant: 'outlined'
 };
