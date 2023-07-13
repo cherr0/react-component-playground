@@ -4,12 +4,7 @@ module.exports = {
     commonjs: true,
     es2021: true
   },
-  plugins: [
-    'react',
-    'react-hooks',
-    'storybook',
-    '@typescript-eslint/eslint-plugin'
-  ],
+  plugins: ['react', 'react-hooks', 'storybook', '@typescript-eslint/eslint-plugin'],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaFeatures: {
@@ -17,12 +12,11 @@ module.exports = {
     },
     ecmaVersion: 'latest'
   },
-  overrides: [
-    {
-      files: ['**/*.stories.*']
-    }
-  ],
+  overrides: [{
+    files: ['**/*.stories.*']
+  }],
   rules: {
     'import/no-anonymous-default-export': 'off'
-  }
+  },
+  extends: ['plugin:storybook/recommended']
 };
