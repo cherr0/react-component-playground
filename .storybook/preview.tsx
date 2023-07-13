@@ -1,21 +1,29 @@
-import type {Preview, ReactRenderer, Args} from '@storybook/react';
-import {ThemeProvider} from "styled-components";
-import GlobalStyle from "../src/styles/GlobalStyle";
-import { DecoratorFunction } from '@storybook/types'
-import {defaultTheme} from "../src/styles/theme";
-import { Simplify } from 'type-fest'
+import type { Args, Preview, ReactRenderer } from '@storybook/react';
+import styled, { ThemeProvider } from 'styled-components';
+import GlobalStyle from '../src/styles/GlobalStyle';
+import { DecoratorFunction } from '@storybook/types';
 
+import { Simplify } from 'type-fest';
+import { defaultTheme } from '../src/styles/theme';
+import { darkVariables, lightVariables } from '../src/styles/variable';
 
-const decorator: DecoratorFunction<ReactRenderer, Simplify<Args>> = (Story, {globals}) => {
+const StoryWrapper = styled.div<{ mode: string }>`
+  ${({ mode }) => (mode === 'light' ? lightVariables : darkVariables)};
+`;
 
-  console.log(globals)
-
-  return (<ThemeProvider theme={defaultTheme}>
-    <GlobalStyle />
-    <Story />
-    </ThemeProvider>)
-}
-
+const decorator: DecoratorFunction<ReactRenderer, Simplify<Args>> = (
+  Story,
+  { globals }
+) => {
+  return (
+    <ThemeProvider theme={defaultTheme}>
+      <StoryWrapper mode={globals.theme ?? 'light'}>
+        <GlobalStyle />
+        <Story />
+      </StoryWrapper>
+    </ThemeProvider>
+  );
+};
 
 const parameters = {
   actions: { argTypesRegex: '^on[A-Z].*' },
@@ -24,9 +32,8 @@ const parameters = {
       color: /(background|color)$/i,
       date: /Date$/
     }
-  },
-
-}
+  }
+};
 
 const preview: Preview = {
   parameters,
@@ -39,8 +46,8 @@ const preview: Preview = {
         title: 'Theme',
         icon: 'eye',
         items: ['light', 'dark'],
-        dynamicTitle: true,
-      },
+        dynamicTitle: true
+      }
     },
     locale: {
       description: 'Internationalization locale',
@@ -52,12 +59,12 @@ const preview: Preview = {
           { value: 'fr', right: '🇫🇷', title: 'Français' },
           { value: 'es', right: '🇪🇸', title: 'Español' },
           { value: 'zh', right: '🇨🇳', title: '中文' },
-          { value: 'kr', right: '🇰🇷', title: '한국어' },
+          { value: 'kr', right: '🇰🇷', title: '한국어' }
         ],
-        dynamicTitle: true,
-      },
-    },
-  },
+        dynamicTitle: true
+      }
+    }
+  }
 };
 
 export default preview;
