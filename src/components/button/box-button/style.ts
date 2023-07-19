@@ -2,7 +2,7 @@ import styled, { css } from 'styled-components';
 import { OptionalStyleRecord, StyleRecord } from '../../../styles/type';
 import { typography } from '../../../styles/typography';
 import { noneDraggable } from '../../../styles/mixin';
-import { ButtonProps } from './index';
+import { ButtonProps } from './type';
 import { shadow } from '../../../styles/token';
 
 const variantStyle: StyleRecord<NonNullable<ButtonProps['variant']>> = {
