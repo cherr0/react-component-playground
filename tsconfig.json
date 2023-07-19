@@ -1,6 +1,9 @@
 {
   "compilerOptions": {
     "baseUrl": ".",
+    "paths": {
+      "~/*": ["src/*"]
+    },
     "typeRoots": ["./node_modules/@types", "@types"],
     "lib": ["dom", "dom.iterable", "esnext"],
     "skipLibCheck": true,
