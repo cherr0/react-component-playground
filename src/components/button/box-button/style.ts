@@ -1,9 +1,11 @@
 import styled, { css } from 'styled-components';
-import { BoxButtonProps } from './type';
-import { StyleRecord } from '../../../styles/type';
+import { OptionalStyleRecord, StyleRecord } from '../../../styles/type';
 import { typography } from '../../../styles/typography';
+import { noneDraggable } from '../../../styles/mixin';
+import { ButtonProps } from './index';
+import { shadow } from '../../../styles/token';
 
-const variantStyle: StyleRecord<BoxButtonProps['variant']> = {
+const variantStyle: StyleRecord<NonNullable<ButtonProps['variant']>> = {
   contained: css`
     color: var(--white);
     background-color: var(--accent-button-default);
@@ -38,7 +40,7 @@ const variantStyle: StyleRecord<BoxButtonProps['variant']> = {
   `
 };
 
-const sizeStyle: StyleRecord<BoxButtonProps['size']> = {
+const sizeStyle: StyleRecord<ButtonProps['size']> = {
   sm: css`
     padding: 4px 10px;
     ${typography.button_m};
@@ -53,16 +55,35 @@ const sizeStyle: StyleRecord<BoxButtonProps['size']> = {
   `
 };
 
-export const BoxButtonWrapper = styled.button<BoxButtonProps>`
-  display: flex;
-  width: fit-content;
-  justify-content: center;
-  align-items: center;
-  transition: color, background-color, box-shadow, 0.3s ease;
-  box-shadow: var(--shadow-md);
-  border-radius: 4px;
-  gap: 8px;
+const widthStyle: OptionalStyleRecord<ButtonProps['width']> = {
+  fill: css`
+    width: 100%;
+  `,
+  hug: css`
+    width: fit-content;
+  `
+};
 
+export const ButtonWrapper = styled.button<ButtonProps>`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  white-space: nowrap;
+  gap: 8px;
+  border-radius: 8px;
+  border: 1px solid;
+  transition: border, color, background-color, 0.3s ease;
+
+  ${noneDraggable};
+  ${shadow.xs};
   ${({ variant }) => variantStyle[variant]};
   ${({ size }) => sizeStyle[size]};
+  ${({ width, fixedWidth }) => {
+    if (width === 'fixed') {
+      return css`
+        width: ${fixedWidth}px;
+      `;
+    }
+    return widthStyle[width];
+  }};
 `;

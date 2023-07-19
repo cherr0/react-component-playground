@@ -1,9 +1,9 @@
-import { BoxButton } from './index';
+import { Button } from './index';
 import { Meta, StoryObj } from '@storybook/react';
 
-const meta: Meta<typeof BoxButton> = {
+const meta: Meta<typeof Button> = {
   title: 'common/Buttons/Box Button',
-  component: BoxButton,
+  component: Button,
   tags: ['autodocs'],
   args: {
     children: 'Button'
@@ -12,7 +12,7 @@ const meta: Meta<typeof BoxButton> = {
 
 export default meta;
 
-type Story = StoryObj<typeof BoxButton>;
+type Story = StoryObj<typeof Button>;
 
 export const Contained: Story = {
   args: {

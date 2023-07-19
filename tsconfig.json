@@ -1,8 +1,6 @@
 {
   "compilerOptions": {
-    "strict": true,
     "baseUrl": ".",
-    "target": "es5",
     "typeRoots": ["./node_modules/@types", "@types"],
     "lib": ["dom", "dom.iterable", "esnext"],
     "skipLibCheck": true,
@@ -15,6 +13,7 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
+    "keyofStringsOnly": true,
     "jsx": "react-jsx"
   },
   "include": ["src", "stories", "components", "types.ts"],
